@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigPortal</title>
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script src="/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    
+</head>
+<body data-spy="scroll" data-target="#context_menu">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <a class="brand" >Stringtacular Goodness Analyzr</a>
+        <form id="script_form" class="pull-right" method="post" style="padding:0px">
+          <% IF lcs.size %>
+          <a class="btn" href="#substrings">Substrings</a>
+          <a class="btn" href="#content">Content</a>
+          <% END %>
+          <button type="submit" class="btn btn-primary" onclick="Input.prepare_submit()">Update</button>
+        </form>
+    </div>
+  </div>
+  <div class="container offset1 span10">
+    <% IF lcs.size %>
+    <section id="substrings">
+      <div class="page-header"><h1></h1></div>
+      <div class="page-header"><h1>Substrings</h1></div>
+      <div class="row">
+        <div class="span2"><h4>Occurence</h4></div>
+        <div class="span8"><h4>Substring</h4></div>
+      </div>
+      <% FOREACH l IN lcs %>
+      <div class="row">
+        <div class="span1"><% l.count %></div>
+        <div class="offset1 span8"><pre><code><% l.str %></code></pre></div>
+      </div>
+      <% END %>
+    </section>
+    <% END %>
+          
+    <section id="content">
+      <div class="page-header"><h1></h1></div>
+      <div class="page-header"><h1>Content</h1></div>
+      <div id="scripts">
+        <div class="row">
+          <div class="span2 form-inline">
+            <button class="btn btn-primary add_button" onclick="Input.add_input(this)">
+              <i class="icon-plus icon-white"></i>
+            </button>
+            <button class="btn btn-danger remove_button" style="display: none" onclick="Input.remove_input(this)">
+              <i class="icon-minus icon-white"></i>
+            </button>
+            <select class="span1" onchange="Input.change_input(this)">
+              <option value="text">Script</option>
+              <option value="url">URL</option>
+            </select>
+          </div>
+          <div class="span8">
+            <textarea class="span8 script_text" type="text" rows="3" placeholder="Content"></textarea>
+            <input class="span8 script_url" style="display: none" type="text" placeholder="URL"></input>
+          </div>
+        </div>
+        <% FOREACH s IN scripts %>
+        <div class="row">
+          <div class="span2">
+            <button class="btn btn-danger" onclick="Input.remove_input(this)">
+              <i class="icon-minus icon-white"></i>
+            </button>
+          </div>
+          <div class="span8">
+            <pre class="script_format"><code><% s %></code></pre>
+          </div>
+        </div>
+        <% END %>
+      </div>
+    </section>
+  </div>
+  <script type="text/javascript" src="javascripts/Input.js"></script>
+  <script type="text/javascript">$('#context_menu').affix()</script>
+</body>
+</html>

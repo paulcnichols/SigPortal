@@ -1,0 +1,40 @@
+<div class="navbar">
+  <div class="navbar-inner">
+		<div class="container">
+    		<h1 style="text-align: center">Stringtacular Goodness Analyzr</h1>
+		</div>
+	</div>
+</div>
+
+<form class="container" id="script_form" action="analyze" method="post">
+	<div class="row">
+		<div class="span2">
+			<button type="submit" class="btn btn-primary" onclick="Input.prepare_submit()">Analyze</button>
+		</div>
+	</div>
+</form>
+
+<div class="container"  id="scripts">
+	<div class="row">
+		<div class="span2">
+			<button class="btn btn-primary" onclick="Input.add_input(this)">
+				<i class="icon-plus icon-white"></i>
+			</button>
+			<button class="btn btn-danger" onclick="Input.remove_input(this)">
+			 		<i class="icon-minus icon-white"></i>
+			</button>
+		</div>
+		<div class="span1">
+			<select class="span1" onchange="Input.change_input(this)">
+				<option value="text">Script</option>
+				<option value="url">URL</option>
+			</select>
+		</div>
+		<div class="span8">
+			<textarea class="span8 script_text" type="text" rows="3" placeholder="Content"></textarea>
+			<input class="span8 script_url" style="display: none" type="text" placeholder="URL"></input>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="javascripts/Input.js"></script>

@@ -1,0 +1,17 @@
+package SigPortal;
+use Data::Dump qw(dump);
+use Dancer ':syntax';
+
+our $VERSION = '0.1';
+
+get '/' => sub {
+    template 'index';
+};
+
+post '/analyze' => sub {
+	my $p = params;
+	"<pre>" . dump(params) . "</pre>";
+};
+
+
+true;
