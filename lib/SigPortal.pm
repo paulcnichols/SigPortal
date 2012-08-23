@@ -10,6 +10,8 @@ use String::LCSS_XS qw(lcss lcss_all);
 
 our $VERSION = '0.1';
 
+set 'public' => path(dirname(__FILE__), 'public');
+
 set 'template' => 'template_toolkit';
 
 get '/' => sub {
