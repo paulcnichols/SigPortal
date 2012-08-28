@@ -151,7 +151,7 @@ post '/' => sub {
 	}
         push @$aligned, $html;
     }
-    template 'index.tt', {lcs=>$top, scripts=>$aligned};
+    template 'index.tt', {lcs=>$top, scripts=>$aligned, demo=>['']};
     
 };
 
