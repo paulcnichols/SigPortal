@@ -38,6 +38,7 @@ post '/' => sub {
 		push @scripts, {content=>$s, source=>'raw', part=>$i++};
 	    }
 	    if ($i==0) {
+                $p{$k} =~ s/\r//g;
 		push @scripts, {content=>$p{$k}, source=>'raw', part=>0};
 	    }
 	}
